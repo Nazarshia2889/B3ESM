@@ -1,0 +1,23 @@
+AUGS: ['mean', 'smote', 'pca']
+DATA:
+  BATCH_SIZE: 256
+  DATASET: "b3esm"
+  NUM_WORKERS: 32
+  PIN_MEMORY: True
+  PCA:
+    N_COMPS: 100
+MODEL:
+  NAME: mlp
+  NUM_HIDDEN_LAYERS: 0
+  HIDDEN_DIM: 128
+  DROP_RATE: 0.0
+TRAIN:
+  EPOCHS: 500
+  LR: 0.0005
+  WEIGHT_DECAY: 0.0001
+  LR_SCHEDULER:
+    NAME: "cosine"
+  OPTIMIZER:
+    NAME: "adamw"
+  MONITOR: "val_f1"
+OUTPUT: "output/mlp_nl=0_hd=128_pca=100/"
